@@ -9,11 +9,12 @@ Bot to Trigger CS:GO Dedicated Server hosted on AWS EC2
 ```shell
 .
 ├── ec2
-│   ├── __init__.py
-│   └── README.md
+│   └── __init__.py
 ├── LICENSE
 ├── main.py
 ├── Procfile
 ├── README.md
 └── requirements.txt
+
+1 directory, 6 files
 ```
