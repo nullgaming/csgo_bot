@@ -1,1 +1,1 @@
-# CS Global Offensive - Discord and Telegram bot
+# CS Global Offensive - Discord Bot
