@@ -4,7 +4,7 @@
 
 Bot to Trigger CS:GO Dedicated Server hosted on AWS EC2
 
-## Project Structure
+### Project Structure
 
 ```shell
 .
