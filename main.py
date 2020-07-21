@@ -57,7 +57,7 @@ async def status(ctx):
 async def help(ctx):
 	response_title = "Command List"
 	command_list = "`ping`: Returns bot's latency\n`start_server`: Starts csgo server\n`stop_server`: Stops csgo server\n`get_ip`: Returns server's IP\n`status`: Returns server's running status"
-	emb = discord.Embed(title = response_title, description = command_list, color = '#0c117d')
+	emb = discord.Embed(title = response_title, description = command_list, color = 0x0c117d)
 	await ctx.send(embed = emb)
 
 if __name__ == "__main__":
