@@ -9,6 +9,7 @@ csgo = CSGO_EC2()
 
 TOKEN = os.getenv("DISCORD_TOKEN")
 client = commands.Bot(command_prefix='.')
+client.remove_command('help')
 
 @client.event
 async def on_ready():
