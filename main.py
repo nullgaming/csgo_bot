@@ -26,7 +26,7 @@ async def ping(ctx):
 async def start_server(ctx):
 	csgo.start_server()
 	await ctx.send("CS:GO Server - Initializing Startup")
-	time.sleep(15)
+	time.sleep(20)
 	ip = csgo.get_instance_IP()
 	await ctx.send(f"CS:GO Server - IP is `{ip}`")
 
