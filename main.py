@@ -13,7 +13,7 @@ client.remove_command('help')
 
 @client.event
 async def on_ready():
-	await client.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name=".help"))
+	await client.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name=".help", url="steam://connect/13.126.60.35:27015/Urban_Hunger1"))
 	print('Bot is ready')
 
 
