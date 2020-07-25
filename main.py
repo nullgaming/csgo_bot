@@ -13,7 +13,7 @@ client.remove_command('help')
 
 @client.event
 async def on_ready():
-	await client.change_presence(activity=discord.Activity(type=discord.ActivityType.streaming, platform="Steam", name=".help", game="Counter-Strike Global Offensive", url="steam://connect/13.126.60.35:27015/Urban_Hunger1"))
+	await client.change_presence(activity=discord.Activity(type=discord.ActivityType.streaming, platform="Twitch", name=".help", game="Counter-Strike Global Offensive", url="steam://connect/13.126.60.35:27015/Urban_Hunger1"))
 	print('Bot is ready')
 
 
