@@ -16,7 +16,8 @@ client.remove_command('help')
 
 @client.event
 async def on_ready():
-    await client.change_presence(activity=discord.Game(type=discord.ActivityType.playing, name="Counter-Strike:Global Offensive"))
+    await client.change_presence(
+        activity=discord.Game(type=discord.ActivityType.playing, name="Counter-Strike:Global Offensive"))
     print('Bot is ready')
 
 
@@ -64,12 +65,16 @@ async def help(ctx):
     emb = discord.Embed(title=response_title, description=command_list, color=0x679eff)
     await ctx.send(embed=emb)
 
+
 @client.command()
 async def play(ctx):
-	response_title = "connect here"
-	description = "steam://connect/13.126.60.35:27015/Urban_Hunger1"
-	emb = discord.Embed(title=response_title, description=description).set_footer(text="`connect 13.126.60.35:27015;password Urban_Hunger1`")
-	await ctx.send(embed=emb)
+    response_title = "Connect to Server"
+    ip = csgo.get_instance_IP()
+    description = "`Direct Connect`:steam://connect/{0}:27015/Urban_Hunger1\n`Console CMD`:`connect {0}:27015;password Urban_Hunger1`".format(ip)
+    emb = discord.Embed(title=response_title, description=description).set_footer(
+        text="glhf")
+    await ctx.send(embed=emb)
+
 
 if __name__ == "__main__":
     client.run(TOKEN)
