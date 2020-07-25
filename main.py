@@ -17,7 +17,7 @@ client.remove_command('help')
 @client.event
 async def on_ready():
     await client.change_presence(activity=discord.Streaming(name="Counter-Strike:Global Offensive",
-                                                            url="steam://connect/13.126.60.35:27015/Urban_Hunger1"))
+                                                            url="https://www.twitch.tv/esl_csgo"))
     print('Bot is ready')
 
 
