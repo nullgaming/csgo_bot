@@ -16,8 +16,7 @@ client.remove_command('help')
 
 @client.event
 async def on_ready():
-    await client.change_presence(activity=discord.Streaming(name="Counter-Strike:Global Offensive",
-                                                            url="https://www.google.com"))
+    await client.change_presence(activity=discord.Game(type=discord.ActivityType.playing ,name="Counter-Strike:Global Offensive"))
     print('Bot is ready')
 
 
