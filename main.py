@@ -70,9 +70,9 @@ async def help(ctx):
 async def play(ctx):
     response_title = "Connect to Server"
     ip = csgo.get_instance_IP()
-    description = "`Direct Connect`:steam://connect/{0}:27015/Urban_Hunger1\n`Console CMD`:`connect {0}:27015;password Urban_Hunger1`".format(ip)
+    description = "`Direct Connect`: steam://connect/{0}:27015/Urban_Hunger1\n`Console CMD`: `connect {0}:27015;password Urban_Hunger1`".format(ip)
     emb = discord.Embed(title=response_title, description=description).set_footer(
-        text="glhf")
+        text="glhf!")
     await ctx.send(embed=emb)
 
 
