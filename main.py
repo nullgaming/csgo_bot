@@ -68,7 +68,7 @@ async def help(ctx):
 async def play(ctx):
 	response_title = "connect here"
 	description = "steam://connect/13.126.60.35:27015/Urban_Hunger1"
-	emb = discord.Embed(title=response_title, description=description, footer="connect 13.126.60.35:27015;password Urban_Hunger1")
+	emb = discord.Embed(title=response_title, description=description).set_footer(text="connect 13.126.60.35:27015;password Urban_Hunger1")
 	await ctx.send(embed=emb)
 
 if __name__ == "__main__":
