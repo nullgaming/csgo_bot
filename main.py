@@ -64,6 +64,12 @@ async def help(ctx):
     emb = discord.Embed(title=response_title, description=command_list, color=0x679eff)
     await ctx.send(embed=emb)
 
+@client.command()
+async def play(ctx):
+	response_title = "connect here"
+	response_url = "steam://connect/13.126.60.35:27015/Urban_Hunger1"
+	emb = discord.Embed(title=response_title, url=response_url, footer="connect 13.126.60.35:27015;password Urban_Hunger1")
+	await ctx.send(embed=emb)
 
 if __name__ == "__main__":
     client.run(TOKEN)
