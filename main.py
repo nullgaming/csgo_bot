@@ -14,6 +14,8 @@ TOKEN = os.getenv("DISCORD_TOKEN")
 client = commands.Bot(command_prefix='.')
 client.remove_command('help')
 
+cspwd = os.getenv("CSPWD")
+
 
 @client.event
 async def on_ready():
@@ -60,7 +62,7 @@ async def status(ctx):
 @client.command()
 async def help(ctx):
     response_title = "Command List"
-    command_list = "`ping`: Returns bot's latency\n`start_server`: Starts csgo server\n`stop_server`: Stops csgo server\n`restart_server`: Restarts csgo server\n`play`: Connect to server\n`status`: Returns server's running status"
+    command_list = "`ping`: Returns bot's latency\n`start`: Starts csgo server\n`stop`: Stops csgo server\n`restart`: Restarts csgo server\n`play`: Connect to server\n`status`: Returns server's running status"
     emb = discord.Embed(title=response_title,
                         description=command_list, color=0x679eff)
     await ctx.send(embed=emb)
@@ -75,8 +77,9 @@ async def play(ctx):
     else:
         ip = csgo.get_instance_IP()
         response_title = "Connect to Server"
-        description = "`Direct Connect`: steam://connect/{0}:27015/kalajadu69\n`Console CMD`: `connect {0}:27015;password kalajadu69`".format(
-            ip)
+        description = "`Direct Connect`: steam://connect/{0}:27015/{1}\n`Console CMD`: `connect {0}:27015;password {1}`".format(
+            ip,
+            cspwd)
         emb = discord.Embed(title=response_title,
                             description=description).set_footer(text="glhf!")
         await ctx.send(embed=emb)
