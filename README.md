@@ -9,14 +9,14 @@ Discord Bot to trigger CS:GO Dedicated Server hosted on AWS EC2
 Have a look at `requirements.txt` for a detailed list
 
 * discord.py
-* boto3 - Python based API for AWS
+* Azure SDK for python
 * dotenv
 
 ### Project Structure
 
 ```shell
 .
-├── ec2
+├── csazure
 │   └── __init__.py
 ├── LICENSE
 ├── main.py
