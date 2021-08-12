@@ -31,7 +31,6 @@ async def ping(ctx):
 async def start(ctx):
     await ctx.send("CS:GO Server - Initializing Startup")
     csgo.start_server()
-    time.sleep(60)
     ip = csgo.get_instance_IP()
     await ctx.send(f"CS:GO Server - IP is `{ip}`")
 
@@ -40,7 +39,6 @@ async def start(ctx):
 async def stop(ctx):
     await ctx.send("CS:GO Server - Initializing Shutdown")
     csgo.stop_server()
-    time.sleep(30)
     status = csgo.get_server_status()
     await ctx.send(f"CS:GO Server Status - `{status}`")
 
@@ -49,7 +47,6 @@ async def stop(ctx):
 async def restart(ctx):
     await ctx.send("CS:GO Server - Initializing Shutdown")
     csgo.restart_server()
-    time.sleep(60)
     ip = csgo.get_instance_IP()
     await ctx.send(f"CS:GO Server - IP is `{ip}`")
 
