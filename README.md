@@ -2,7 +2,7 @@
 
 [![shields.io](https://img.shields.io/badge/MADE%20WITH-Discord.PY-%237289DA?style=for-the-badge)](https://shields.io)
 
-Discord Bot to trigger CS:GO Dedicated Server hosted on AWS EC2
+Discord Bot to trigger CS:GO Dedicated Server hosted on Azure
 
 ### Dependencies
 

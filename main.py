@@ -28,27 +28,27 @@ async def ping(ctx):
 
 
 @client.command()
-async def start_server(ctx):
-    csgo.start_server()
+async def start(ctx):
     await ctx.send("CS:GO Server - Initializing Startup")
+    csgo.start_server()
     time.sleep(60)
     ip = csgo.get_instance_IP()
     await ctx.send(f"CS:GO Server - IP is `{ip}`")
 
 
 @client.command()
-async def stop_server(ctx):
-    csgo.stop_server()
+async def stop(ctx):
     await ctx.send("CS:GO Server - Initializing Shutdown")
+    csgo.stop_server()
     time.sleep(30)
     status = csgo.get_server_status()
     await ctx.send(f"CS:GO Server Status - `{status}`")
 
 
 @client.command()
-async def restart_server(ctx):
+async def restart(ctx):
+    await ctx.send("CS:GO Server - Initializing Shutdown")
     csgo.restart_server()
-    await ctx.send("CS:GO Server - Initializing Reboot")
     time.sleep(60)
     ip = csgo.get_instance_IP()
     await ctx.send(f"CS:GO Server - IP is `{ip}`")

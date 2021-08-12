@@ -55,17 +55,14 @@ class CSGO_AZURE:
     def start_server(self):
         async_vm_start = self.compute_client.virtual_machines.begin_start(
             GROUP_NAME, VM_NAME)
-        async_vm_start.wait()
         return async_vm_start.status()
 
     def restart_server(self):
         async_vm_restart = self.compute_client.virtual_machines.begin_restart(
             GROUP_NAME, VM_NAME)
-        async_vm_restart.wait()
         return async_vm_restart.status()
 
     def stop_server(self):
         async_vm_stop = self.compute_client.virtual_machines.begin_deallocate(
             GROUP_NAME, VM_NAME)
-        async_vm_stop.wait()
         return async_vm_stop.status()
