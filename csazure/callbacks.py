@@ -16,11 +16,11 @@ def send_callback_msg(operation, ctx, command,diff):
     message = str(operation.__dict__["_status"])
     if message == "Succeeded":
         if command == 0:
-            message = "CS:GO Server - `Startup Initialization Successful` in `{}` secs".format(diff)
+            message = "CS:GO Server - `Startup Initialization Successful` in `{}` seconds".format(diff)
         elif command == 1:
-            message = "CS:GO Server - `Reboot Successful` in `{}` secs".format(diff)
+            message = "CS:GO Server - `Reboot Successful` in `{}` seconds".format(diff)
         elif command == 2:
-            message = "CS:GO Server - `Shutdown Completed` in `{}` secs".format(diff)
+            message = "CS:GO Server - `Shutdown Completed` in `{}` seconds".format(diff)
         else:
             message = "How did I reach here ??"
     else:
