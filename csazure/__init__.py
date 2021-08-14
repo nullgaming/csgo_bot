@@ -60,8 +60,8 @@ class CSGO_AZURE:
         start = timer()
         async_vm_start.wait()
         end = timer()
-        diff = end - start
-        async_vm_start.add_done_callback(func=partial(callbacks.send_callback_msg, ctx=ctx,command=0,diff=diff))
+        diff = round(end - start, 2)
+        async_vm_start.add_done_callback(func=partial(callbacks.send_callback_msg, ctx=ctx, command=0, diff=diff))
         return async_vm_start.status()
 
     def restart_server(self, ctx):
@@ -70,8 +70,8 @@ class CSGO_AZURE:
         start = timer()
         async_vm_restart.wait()
         end = timer()
-        diff = end - start
-        async_vm_restart.add_done_callback(func=partial(callbacks.send_callback_msg, ctx=ctx,command=1,diff=diff))
+        diff = round(end - start, 2)
+        async_vm_restart.add_done_callback(func=partial(callbacks.send_callback_msg, ctx=ctx, command=1, diff=diff))
         return async_vm_restart.status()
 
     def stop_server(self, ctx):
@@ -80,6 +80,6 @@ class CSGO_AZURE:
         start = timer()
         async_vm_stop.wait()
         end = timer()
-        diff = end - start
-        async_vm_stop.add_done_callback(func=partial(callbacks.send_callback_msg, ctx=ctx,command=2,diff=diff))
+        diff = round(end - start, 2)
+        async_vm_stop.add_done_callback(func=partial(callbacks.send_callback_msg, ctx=ctx, command=2, diff=diff))
         return async_vm_stop.status()
