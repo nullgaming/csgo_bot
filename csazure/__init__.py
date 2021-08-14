@@ -1,10 +1,11 @@
 from dotenv import load_dotenv
 import os
-
 from azure.identity import ClientSecretCredential
 from azure.mgmt.resource import ResourceManagementClient
 from azure.mgmt.network import NetworkManagementClient
 from azure.mgmt.compute import ComputeManagementClient
+from . import callbacks
+from functools import partial
 
 load_dotenv()
 
@@ -52,17 +53,23 @@ class CSGO_AZURE:
         except:
             pass
 
-    def start_server(self):
+    def start_server(self, ctx):
         async_vm_start = self.compute_client.virtual_machines.begin_start(
             GROUP_NAME, VM_NAME)
+        async_vm_start.add_done_callback(func=partial(callbacks.send_callback_msg, ctx=ctx,command=0))
+        async_vm_start.wait()
         return async_vm_start.status()
 
-    def restart_server(self):
+    def restart_server(self, ctx):
         async_vm_restart = self.compute_client.virtual_machines.begin_restart(
             GROUP_NAME, VM_NAME)
+        async_vm_restart.add_done_callback(func=partial(callbacks.send_callback_msg, ctx=ctx,command=1))
+        async_vm_restart.wait()
         return async_vm_restart.status()
 
-    def stop_server(self):
+    def stop_server(self, ctx):
         async_vm_stop = self.compute_client.virtual_machines.begin_deallocate(
             GROUP_NAME, VM_NAME)
+        async_vm_stop.add_done_callback(func=partial(callbacks.send_callback_msg, ctx=ctx,command=2))
+        async_vm_stop.wait()
         return async_vm_stop.status()
