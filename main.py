@@ -27,19 +27,19 @@ async def ping(ctx):
 
 @bot.command()
 async def start(ctx):
-    await ctx.send("CS:GO Server - Initializing Startup")
+    await ctx.send("CS:GO Server - `Initializing Startup`")
     csgo.start_server(ctx)
 
 
 @bot.command()
 async def stop(ctx):
-    await ctx.send("CS:GO Server - Initializing Shutdown")
+    await ctx.send("CS:GO Server - `Initializing Shutdown`")
     csgo.stop_server(ctx)
 
 
 @bot.command()
 async def restart(ctx):
-    await ctx.send("CS:GO Server - Initializing Reboot")
+    await ctx.send("CS:GO Server - `Initializing Reboot`")
     csgo.restart_server(ctx)
 
 
