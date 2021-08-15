@@ -13,6 +13,10 @@ bot = commands.Bot(command_prefix=".", help_command=None)
 cspwd = os.getenv("CSPWD")
 
 
+def server_status():
+    return csgo.get_server_status()
+
+
 @bot.event
 async def on_ready():
     await bot.change_presence(
@@ -26,27 +30,39 @@ async def ping(ctx):
 
 
 @bot.command()
+async def status(ctx):
+    status = csgo.get_server_status()
+    await ctx.send(f"CS:GO Server Status - `{status}`")
+
+
+@bot.command()
 async def start(ctx):
-    await ctx.send("CS:GO Server - `Initializing Startup`")
-    csgo.start_server(ctx)
+    srv_status = server_status()
+    if srv_status == "running":
+        await  ctx.send("CS:GO Server - `Started`")
+    elif srv_status == "starting":
+        await ctx.send("CS:GO Server - `Startup Initialized,Patience!`")
+    else:
+        await ctx.send("CS:GO Server - `Initializing Startup`")
+        csgo.start_server(ctx)
 
 
 @bot.command()
 async def stop(ctx):
-    await ctx.send("CS:GO Server - `Initializing Shutdown`")
-    csgo.stop_server(ctx)
+    srv_status = server_status()
+    if srv_status == "stopped":
+        await ctx.send("CS:GO Server - `Stopped`")
+    elif srv_status == "stopping":
+        await ctx.send("CS:GO Server - `Shutdown Initialized,Patience!`")
+    else:
+        await ctx.send("CS:GO Server - `Initializing Shutdown`")
+        csgo.stop_server(ctx)
 
 
 @bot.command()
 async def restart(ctx):
     await ctx.send("CS:GO Server - `Initializing Reboot`")
     csgo.restart_server(ctx)
-
-
-@bot.command()
-async def status(ctx):
-    status = csgo.get_server_status()
-    await ctx.send(f"CS:GO Server Status - `{status}`")
 
 
 @bot.command()
